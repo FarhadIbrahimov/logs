@@ -19,7 +19,7 @@ app.use(express.static("public"));
 app.use("/logs", logRoutes);
 
 app.get("/", (req, res) => {
-  res.send("HOME");
+  res.redirect("/logs");
 });
 
 app.listen(PORT, () => {

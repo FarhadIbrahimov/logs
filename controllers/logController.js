@@ -1,17 +1,34 @@
 const LogModel = require("../models/logModelDB");
 
 module.exports.index = async (req, res) => {
-  res.render("/");
+  try {
+    const logs = await LogModel.find();
+    res.render("Index", { logs });
+  } catch (err) {
+    console.log("Mongo error: ", err);
+  }
 };
 
 module.exports.new = async (req, res) => {
-  res.render("logs/New");
+  try {
+    res.render("logs/New");
+  } catch (error) {
+    console.log("Mongo error ", error);
+  }
 };
 module.exports.destroy = async (req, res) => {
-  res.render("logs/:id");
+  try {
+    // res.render("logs/:id");
+  } catch (error) {
+    console.log("Mongo error ", error);
+  }
 };
 module.exports.update = async (req, res) => {
-  res.render("logs/:id");
+  try {
+    // res.render("logs/:id");   redirects
+  } catch (error) {
+    console.log("Mongo error ", error);
+  }
 };
 module.exports.create = async (req, res) => {
   res.render("/");
@@ -20,5 +37,5 @@ module.exports.edit = async (req, res) => {
   res.render("logs/:id/edit");
 };
 module.exports.show = async (req, res) => {
-  res.render("logs/:id");
+  res.render("Index");
 };

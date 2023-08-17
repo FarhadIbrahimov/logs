@@ -1,6 +1,6 @@
 import React from "react";
 
-function Show() {
+export default function Show() {
   return (
     <div>
       <h1>Show</h1>
