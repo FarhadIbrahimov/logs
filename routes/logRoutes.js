@@ -17,8 +17,9 @@ router.get("/new", logController.new);
 // //update
 // router.post("/:id", logController.update);
 
-// //create
-// router.post("/", logController.create);
+//create
+router.post("/", logController.create);
+// router.post("/", logController.);
 
 // //edit
 // router.get("/:id/edit", logController.edit);

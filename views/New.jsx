@@ -11,11 +11,11 @@ export default function New() {
         <br />
         <br />
         <label htmlFor="entry">Entry:</label>
-        <input type="textarea" />
+        <input type="text" name="entry" />
         <br />
         <br />
         <label htmlFor="shipIsBroken">BrokenShip:</label>
-        <input type="checkbox" />
+        <input type="checkbox" name="shipIsBroken" />
         <br />
         <br />
         <button>Submit</button>

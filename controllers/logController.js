@@ -12,12 +12,8 @@ module.exports.index = async (req, res) => {
 module.exports.new = (req, res) => {
   res.render("New");
 };
-// module.exports.destroy = async (req, res) => {
-//   try {
-//     // res.render("logs/:id");
-//   } catch (error) {
-//     console.log("Mongo error ", error);
-//   }
+// module.exports.destroy = (req, res) => {
+//   res.send("received");
 // };
 // module.exports.update = async (req, res) => {
 //   try {
@@ -26,9 +22,15 @@ module.exports.new = (req, res) => {
 //     console.log("Mongo error ", error);
 //   }
 // };
-// module.exports.create = async (req, res) => {
-//   res.render("/");
-// };
+module.exports.create = async (req, res) => {
+  if (req.body.shipIsBroken === "on") {
+    req.body.shipIsBroken = true;
+  } else {
+    req.body.shipIsBroken = false;
+  }
+
+  res.send(req.body);
+};
 // module.exports.edit = async (req, res) => {
 //   res.render("logs/:id/edit");
 // };
