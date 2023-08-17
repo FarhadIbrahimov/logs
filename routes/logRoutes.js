@@ -8,22 +8,22 @@ const logController = require("../controllers/logController");
 
 //index
 router.get("/", logController.index);
-//new
+// new
 router.get("/new", logController.new);
 
-//delete
-router.delete("/:id", logController.destroy);
+// //delete
+// router.delete("/:id", logController.destroy);
 
-//update
-router.post("/:id", logController.update);
+// //update
+// router.post("/:id", logController.update);
 
-//create
-router.post("/", logController.create);
+// //create
+// router.post("/", logController.create);
 
-//edit
-router.get("/:id/edit", logController.edit);
+// //edit
+// router.get("/:id/edit", logController.edit);
 
-//show
-router.get("/:id", logController.show);
+// //show
+// router.get("/:id", logController.show);
 
 module.exports = router;
