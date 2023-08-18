@@ -11,6 +11,8 @@ router.get("/", logController.index);
 // new
 router.get("/new", logController.new);
 
+//clear
+router.delete("/clear", logController.clear);
 //delete
 router.delete("/:id", logController.destroy);
 

@@ -92,7 +92,16 @@ module.exports.seed = async (req, res) => {
       await LogModel.create(logData[i]);
     }
   } catch (error) {
-    console.log("This action failed to perform ", error);
+    console.log("SEED action failed to perform ", error);
+  }
+  res.redirect("/logs");
+};
+
+module.exports.clear = async (req, res) => {
+  try {
+    await LogModel.deleteMany({});
+  } catch (error) {
+    console.log("CLEAR action failed to perform ", error);
   }
   res.redirect("/logs");
 };
