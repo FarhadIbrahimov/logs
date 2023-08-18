@@ -12,9 +12,17 @@ module.exports.index = async (req, res) => {
 module.exports.new = (req, res) => {
   res.render("New");
 };
-// module.exports.destroy = (req, res) => {
-//   res.send("received");
-// };
+module.exports.destroy = async (req, res) => {
+  console.log("Hit POint");
+  try {
+    await LogModel.findByIdAndDelete(req.params.id);
+    // res.status(200).redirect(`/logs/${req.params.id}`);
+  } catch (error) {
+    console.log("Failed to delete document: " + error);
+    // res.status(404).redirect("/");
+  }
+  res.redirect("/logs");
+};
 // module.exports.update = async (req, res) => {
 //   try {
 //     // res.render("logs/:id");   redirects
@@ -28,12 +36,26 @@ module.exports.create = async (req, res) => {
   } else {
     req.body.shipIsBroken = false;
   }
-
-  res.send(req.body);
+  try {
+    let log = await LogModel.create(req.body);
+    res.send(req.body);
+  } catch (error) {
+    console.log("Failed to create a Log document: ", error);
+  }
 };
 // module.exports.edit = async (req, res) => {
 //   res.render("logs/:id/edit");
 // };
-// module.exports.show = async (req, res) => {
-//   res.render("Index");
-// };
+module.exports.show = async (req, res) => {
+  let log;
+  try {
+    log = await LogModel.findById(req.params.id);
+  } catch (error) {
+    console.log("Failed to find Log document: " + req.params.id, error);
+  }
+  if (log) {
+    res.render("Show", { log });
+  } else {
+    res.redirect("/logs");
+  }
+};

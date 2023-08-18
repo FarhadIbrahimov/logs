@@ -7,7 +7,7 @@ export default function New() {
 
       <form action="/logs" and method="POST">
         <label htmlFor="title">Title:</label>
-        <input type="text" id="name" name="name" />
+        <input type="text" id="name" name="title" />
         <br />
         <br />
         <label htmlFor="entry">Entry:</label>
