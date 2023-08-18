@@ -3,7 +3,7 @@ import React from "react";
 export default function New() {
   return (
     <div>
-      <h1>Ship Captain </h1>
+      <h1>Ship Captain's New Log </h1>
 
       <form action="/logs" and method="POST">
         <label htmlFor="title">Title:</label>
@@ -19,6 +19,9 @@ export default function New() {
         <br />
         <br />
         <button>Submit</button>
+        <br />
+        <br />
+        <a href="./">Back</a> <br />
       </form>
     </div>
   );

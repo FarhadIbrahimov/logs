@@ -13,6 +13,7 @@ const methodOverride = require("method-override");
 
 const logRoutes = require("./routes/logRoutes");
 
+app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
