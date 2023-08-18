@@ -6,7 +6,7 @@ export default function New() {
     <NewLayout>
       <div>
         <h1>Ship Captain's New Log </h1>
-        <form action="/logs" and method="POST">
+        <form action="/logs" method="POST">
           <label htmlFor="title">Title:</label>
           <input type="text" id="name" name="title" />
           <br />

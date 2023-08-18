@@ -46,12 +46,17 @@ module.exports.create = async (req, res) => {
   } else {
     req.body.shipIsBroken = false;
   }
+  // Check if any required input fields are empty
+  if (!req.body.title || !req.body.entry) {
+    return res.render("Error");
+  }
   try {
     let log = await LogModel.create(req.body);
 
     res.redirect("/logs");
   } catch (error) {
     console.log("Failed to create a Log document: ", req.params.id, error);
+    res.status(500).send("Failed to create a Log document.");
   }
 };
 
