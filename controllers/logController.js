@@ -85,7 +85,12 @@ module.exports.seed = async (req, res) => {
   console.log("I am Groot");
   try {
     await LogModel.deleteMany({});
-    await LogModel.create(logData);
+
+    // Loop through each log object in the logData array, this way Seed will create a list in the order it is listed in logData file
+    for (let i = 0; i < logData.length; i++) {
+      // Create a new log document in the database using the current log object
+      await LogModel.create(logData[i]);
+    }
   } catch (error) {
     console.log("This action failed to perform ", error);
   }
