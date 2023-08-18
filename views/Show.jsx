@@ -18,7 +18,9 @@ export default function Show({ log }) {
         <button>Edit</button>
       </form>
       <br />
-      <a href="./">Back</a> <br />
+      <form action="./">
+        <button>Back</button>
+      </form>
     </div>
   );
 }

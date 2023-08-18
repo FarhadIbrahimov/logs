@@ -22,7 +22,9 @@ export default function New() {
           <button>Submit</button>
           <br />
           <br />
-          <a href="./">Back</a> <br />
+        </form>
+        <form action="/logs">
+          <button>Back</button>
         </form>
       </div>
     </NewLayout>
